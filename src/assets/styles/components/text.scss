@@ -1,0 +1,21 @@
+.c-text {
+	&--big {
+		@include text-big;
+	}
+
+	&--medium {
+		@include text-medium;
+	}
+
+	&--regular {
+		@include text-regular;
+	}
+
+	&--small {
+		@include text-small;
+	}
+
+	&--xsmall {
+		@include text-xsmall;
+	}
+}

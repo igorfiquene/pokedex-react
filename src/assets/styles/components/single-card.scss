@@ -1,0 +1,116 @@
+.single-card {
+	border: 1px solid;
+	padding-block-start: $container-site-padding;
+	padding-block-end: 4px;
+	background: url('../images/pokeball.png') 100%;
+	background-repeat: no-repeat;
+	background-position: 98% 4%;
+	overflow: hidden;
+
+	&__header {
+		gap: 2rem;
+		color: color(gray, 100);
+		font-weight: bold;
+		margin-bottom: 168px;
+
+		span {
+			margin-left: auto;
+		}
+	}
+
+	&__image {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		top: -25%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&__body {
+		min-height: 412px;
+		border-radius: 8px;
+		margin-inline: 4px;
+		background-color: color(gray, 100);
+		position: relative;
+		padding-top: 80px;
+	}
+
+	&__cards {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin-bottom: 16px;
+	}
+
+	&__about {
+		h2 {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		div {
+			padding-inline: 24px;
+			display: flex;
+			flex-flow: column;
+			justify-content: space-between;
+		}
+		
+		div:nth-child(2) {
+			border-inline: 1px solid color(gray, 300);
+		}
+
+		div:not(:last-of-type) {
+			align-items: center;
+
+			span {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+		}
+
+		div:last-of-type {
+			span {
+				display: flex;
+				flex-flow: column;
+			}
+		}
+
+		span {
+			text-transform: capitalize;
+		}
+		
+		.c-text--small {
+			color: color(gray, 500);
+		}
+
+		.c-text--xsmall {
+			text-align: center;
+			color: color(gray, 400);
+		}
+	}
+
+	@each $name, $type in $types {
+		&--#{$name} {
+			border-color: $type;
+			background-color: $type;
+		}
+
+		&--#{$name} & {
+			&__name {
+				background-color: $type;
+			}
+
+			&__id {
+				color: $type;
+			}
+		}
+	}
+}

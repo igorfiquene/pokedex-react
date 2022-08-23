@@ -1,0 +1,44 @@
+.card {
+	border: 1px solid color(grass);
+	border-radius: 8px;
+	overflow: hidden;
+
+	&__id {
+		display: block;
+		text-align: right;
+		padding-inline: 8px;
+		padding-block-start: 4px;
+	}
+
+	&__name {
+		text-transform: capitalize;
+		display: block;
+		padding: 4px 8px;
+		text-align: center;
+		background-color: color(grass);
+		color: color(gray, 100);
+	}
+
+	img {
+		width: 72px;
+		height: 72px;
+		margin-inline: auto;
+	}
+
+	@each $name, $type in $types {
+		&--#{$name} {
+			border-color: $type;
+		}
+
+		&--#{$name} & {
+			&__name {
+				background-color: $type;
+			}
+
+			&__id {
+				color: $type;
+			}
+		}
+	}
+}
+

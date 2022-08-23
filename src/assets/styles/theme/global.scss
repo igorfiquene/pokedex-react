@@ -1,0 +1,43 @@
+// Global Styles
+
+*, html, body {
+	font-family: $font-family-sans-serif;
+}
+
+h1 {
+	@include title-h1;
+}
+
+h2 {
+	@include title-h2;
+}
+
+h3 {
+	@include title-h3;
+}
+
+h4 {
+	@include title-h4;
+}
+
+h5 {
+	@include title-h5;
+}
+
+input {
+	&:focus-visible {
+		outline: inherit;
+	}
+}
+
+.container {
+	max-width: $container-site-limit;
+	padding-inline: $container-site-padding;
+	margin-inline: auto;
+}
+
+@each $name, $type in $types {
+	#{$name} {
+		border-color: $type;
+	}
+}

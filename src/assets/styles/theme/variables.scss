@@ -1,0 +1,61 @@
+/// Variables
+
+$colors: (
+	gray: (
+		100: #FFFFFF,
+		200: #F7F7F7,
+		300: #E0E0E0,
+		400: #666666,
+		500: #212121
+	),
+);
+
+$types: (
+	rock: #B69E31,
+	ghost: #70559B,
+	steel: #B7B9D0,
+	water: #6493EB,
+	grass: #74CB48,
+	psychic: #FB5584,
+	ice: #9AD6DF,
+	dark: #75574C,
+	fairy: #E69EAC,
+	normal: #AAA67F,
+	fighting: #C12239,
+	flying: #A891EC,
+	poison: #A43E9E,
+	ground: #DEC16B,
+	bug: #A7B723,
+	fire: #F57D31,
+	electric: #F9CF30,
+	dragon: #7037FF
+);
+
+/**
+ *
+ * Typography
+ *
+ */
+
+$font-family-sans-serif: 'Poppins', sans-serif;
+
+$font-big: 1.5rem;
+$font-medium: 0.875rem;
+$font-regular: 0.75rem;
+$font-sm: 0.625rem;
+$font-xsm: 0.5rem;
+
+$h1-font-size: $font-big;
+$h2-font-size: $font-medium;
+$h3-font-size: $font-regular;
+$h4-font-size: $font-sm;
+$h5-font-size: $font-xsm;
+
+/**
+ *
+ * Container
+ *
+ */
+
+$container-site-limit: 768px;
+$container-site-padding: 1.5rem;

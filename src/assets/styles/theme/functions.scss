@@ -1,0 +1,11 @@
+/// Function to get colors base in variables $colors
+
+@function color($color, $value: null) {
+	@if $value {
+		@return map-get(map-get($colors, $color), $value );
+	}
+
+	@else {
+		@return map-get($colors, $color);
+	}
+};

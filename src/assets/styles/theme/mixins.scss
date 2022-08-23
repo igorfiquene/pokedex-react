@@ -1,0 +1,112 @@
+/*
+ *
+ * Title level H1
+ *
+*/
+@mixin title-h1 {
+	text-transform: capitalize;
+	font-size: $h1-font-size;
+	line-height: 2rem;
+}
+
+/*
+ *
+ * Title level H2
+ *
+*/
+
+@mixin title-h2 {
+	text-transform: capitalize;
+	font-size: $h2-font-size;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Title level H3
+ *
+*/
+
+@mixin title-h3 {
+	text-transform: capitalize;
+	font-size: $h3-font-size;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Title level H4
+ *
+*/
+
+@mixin title-h4 {
+	text-transform: capitalize;
+	font-size: $h4-font-size;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Title level H5
+ *
+*/
+
+@mixin title-h5 {
+	text-transform: capitalize;
+	font-size: $h5-font-size;
+	line-height: 0.75rem;
+}
+
+/*
+ *
+ * Text Big
+ *
+*/
+@mixin text-big {
+	font-size: $font-big;
+	line-height: 2rem;
+}
+
+/*
+ *
+ * Text Medium
+ *
+*/
+
+@mixin text-medium {
+	font-size: $font-medium;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Text Regular
+ *
+*/
+
+@mixin text-regular {
+	font-size: $font-regular;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Text Small
+ *
+*/
+
+@mixin text-small {
+	font-size: $font-sm;
+	line-height: 1rem;
+}
+
+/*
+ *
+ * Text Extra Small
+ *
+*/
+
+@mixin text-xsmall {
+	font-size: $font-xsm;
+	line-height: 0.75rem;
+}

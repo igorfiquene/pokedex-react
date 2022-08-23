@@ -1,0 +1,54 @@
+.label-search {
+	position: relative;
+	display: flex;
+	padding-block: 8px;
+	justify-content: center;
+
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding-left: 24px;
+		border-radius: 8px;
+		border: 1px solid color(gray, 300);
+
+		&::placeholder {
+		   text-align: center; 
+		}
+
+		&:focus,
+		&:not(:placeholder-shown) {
+			~ .land-svg {
+				margin-right: auto !important;
+			}
+
+			&::placeholder {
+				color: transparent !important;
+			}
+		}
+
+		&:not(:placeholder-shown) {
+			~ .close-svg {
+				display: block;
+			}
+		}
+	}
+
+	// Icons 
+	.land-svg {
+		margin-left: 8px;
+		margin-right: 50px;
+	}
+
+	.close-svg {
+		margin-right: 8px;
+		display: none;
+	}
+
+	svg {
+		z-index: 2;
+	}
+	// End Icons
+}
