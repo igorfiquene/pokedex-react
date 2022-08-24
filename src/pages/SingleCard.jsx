@@ -5,7 +5,7 @@ import { ArrowLeft } from "../components/svgs/ArrowLeft"
 import { Rule } from "../components/svgs/Rule"
 import { Balance } from "../components/svgs/Balance"
 import { Tag } from "../components/theme/Tag"
-
+import { Loading } from "../components/theme/Loading"
 
 export function SingleCard() {
 	const { slug: id } = useParams()
@@ -179,6 +179,6 @@ export function SingleCard() {
 				</div>
 			</div>
 
-		) : ""
+		) : <Loading />
 	)
 }
