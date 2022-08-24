@@ -16,7 +16,9 @@ export function Sort() {
 			className="sort"
 			onClick={() => dispatch(setOrderBy(!order))}
 		>
-			{ order ? 'A/Z' : '#'}
+			<span>
+				{ order ? 'A Z' : '#'}
+			</span>
 			
 			<ArrowBottom />
 		</button>
