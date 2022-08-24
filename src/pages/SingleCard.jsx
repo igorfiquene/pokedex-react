@@ -43,7 +43,6 @@ export function SingleCard() {
 	}
 
 	function abbreviateStrings(str) {
-
 		const dictionary = {
 			'attack': 'ATK',
 			'hp': 'HP',
@@ -51,6 +50,10 @@ export function SingleCard() {
 			'special-attack': 'SATK',
 			'special-defense': 'SDEF',
 			'speed': 'SPD',
+		}
+
+		if (!dictionary[str]) {
+			console.error('Dont`t exists string in dictionary');
 		}
 
 		return dictionary[str]
