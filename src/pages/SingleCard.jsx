@@ -43,29 +43,17 @@ export function SingleCard() {
 	}
 
 	function abbreviateStrings(str) {
-		switch (str) {
-			case 'attack':
-				return 'ATK'
-				break;
-			case 'hp':
-				return 'HP'
-				break;
-			case 'defense':
-				return 'DEF'
-				break;
-			case 'special-attack':
-				return 'SATK'
-				break;
-			case 'special-defense':
-				return 'SDEF'
-				break;
-			case 'speed':
-				return 'SPD'
-				break;
-			default:
-				return str
-				break;
+
+		const dictionary = {
+			'attack': 'ATK',
+			'hp': 'HP',
+			'defense': 'DEF',
+			'special-attack': 'SATK',
+			'special-defense': 'SDEF',
+			'speed': 'SPD',
 		}
+
+		return dictionary[str]
 	}
 
 	return (
