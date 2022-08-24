@@ -10,15 +10,20 @@ export function Search() {
 		(state) => state.pokemons.filter
 	)
 
+	const loading = useSelector(
+		(state) => state.pokemons.status
+	)
+
 	const dispatch = useDispatch()
 
 	return (
 		<form className="container">
-			<label className="label-search c-text--small">
+			<label className="label-search c-text--small" >
 				<input
 					type="text"
 					placeholder="Procurar"
 					value={filter}
+					disabled={loading === 'success' ? false : true }
 					onChange={(e) => 
 						dispatch(setFilter(e.target.value.toLocaleLowerCase()))
 					}

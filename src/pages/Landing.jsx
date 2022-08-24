@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Card } from "../components/layout/Card"
 import { Header } from "../components/layout/Header"
+import { Loading } from "../components/theme/Loading"
 import { getPokemons } from "../redux/slices/pokemonsSlice"
 
 
@@ -36,7 +37,7 @@ export function Landing() {
 			<div className="list-pokemons container">
 				{
 					loading === 'loading' ? (
-						<h1>Is Loading...</h1>
+						<Loading />
 					) : ( filteredPokemons && filteredPokemons.map(({ id, name, sprites, types }) => (
 							<Card
 								id={id}

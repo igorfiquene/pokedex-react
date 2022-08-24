@@ -5,7 +5,7 @@
 	background: url('../images/pokeball.png') 100%;
 	background-repeat: no-repeat;
 	background-position: 98% 4%;
-	height: 100vh;
+	height: 100%;
 
 	&__description {
 		padding-inline: 20px;
@@ -151,8 +151,8 @@
 	}
 
 	@each $name, $type in $types {
-		.#{$name} {
-			$primary: $type;
+		.color--#{$name} {
+			color: $type;
 		}
 
 		&--#{$name} {
@@ -182,8 +182,4 @@
 			}
 		}
 	}
-}
-
-:root {
-	--primary: #{$primary};
 }

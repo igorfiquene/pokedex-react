@@ -24,7 +24,7 @@ export function SingleCard() {
 		const resultPokemon = await getPokemon()
 
 		const description = await axios.get(resultPokemon.species.url)
-			.then(({data}) => {
+			.then(({ data }) => {
 				return data
 			})
 
@@ -99,7 +99,7 @@ export function SingleCard() {
 						</div>
 
 						<div className="single-card__about">
-							<h2>About</h2>
+							<h2 className={`color color--${pokemon.types[0].type.name}`}>About</h2>
 
 							<div className="single-card__grid">
 								<div>
@@ -149,7 +149,7 @@ export function SingleCard() {
 							<p className="single-card__description c-text--small">{pokemon.flavor_text_entries[1].flavor_text}</p>
 
 							<div className="single-card__status">
-								<h2>Base Stats</h2>
+								<h2 className={`color color--${pokemon.types[0].type.name}`}>Base Stats</h2>
 								
 								<article>
 									{pokemon.stats.map(({ base_stat, stat }) => (

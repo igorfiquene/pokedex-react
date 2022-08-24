@@ -30,6 +30,10 @@ input {
 	}
 }
 
+main {
+	padding-block: 24px;
+}
+
 .container {
 	max-width: $container-site-limit;
 	padding-inline: $container-site-padding;
@@ -40,4 +44,15 @@ a {
 	text-decoration: none;
 }
 
-$primary: #000;
+.loading {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	left: 50%;
+	text-align: center;
+
+	img {
+		width: 100px;
+		margin-bottom: 20px;
+	}
+}
