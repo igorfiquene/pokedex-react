@@ -1,11 +1,16 @@
 .single-card {
 	border: 1px solid;
 	padding-block-start: $container-site-padding;
-	padding-block-end: 4px;
+	padding-block-end: $container-site-padding;
 	background: url('../images/pokeball.png') 100%;
 	background-repeat: no-repeat;
 	background-position: 98% 4%;
-	overflow: hidden;
+	height: 100vh;
+
+	&__description {
+		padding-inline: 20px;
+		margin-bottom: 16px;
+	}
 
 	&__header {
 		gap: 2rem;
@@ -22,7 +27,7 @@
 		position: absolute;
 		width: 200px;
 		height: 200px;
-		top: -25%;
+		top: -35%;
 		left: 50%;
 		transform: translateX(-50%);
 	}
@@ -33,27 +38,57 @@
 		margin-inline: 4px;
 		background-color: color(gray, 100);
 		position: relative;
-		padding-top: 80px;
+		padding-top: 60px;
 	}
 
 	&__cards {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 2rem;
+		gap: 1rem;
 		margin-bottom: 16px;
 	}
 
 	&__about {
+		max-width: 340px;
+		margin: 0 auto;
+		
 		h2 {
 			text-align: center;
 			margin-bottom: 2rem;
 		}
 	}
 
+	&__status h2 {
+		margin-bottom: 16px;
+	}
+
+	&__status {
+		padding-inline: 20px;
+		padding-bottom: 44px;
+
+		span {
+			justify-content: end;
+		}
+
+		span,
+		div {
+			display: grid;
+			align-items: center;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		div {
+			margin-left: 12px;
+			padding-left: 12px;
+			border-left: 1px solid color(gray, 200);
+		}
+	}
+
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		margin-bottom: 16px;
 
 		div {
 			padding-inline: 24px;
@@ -97,10 +132,44 @@
 		}
 	}
 
+	.name {
+		font-weight: bold;
+		text-align: right;
+	}
+
+	.progress {
+		width: 213px;
+		height: 4px;
+		position: relative;
+	}
+
+	.line {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+	}
+
 	@each $name, $type in $types {
+		.#{$name} {
+			$primary: $type;
+		}
+
 		&--#{$name} {
 			border-color: $type;
 			background-color: $type;
+		}
+
+		.progress--#{$name} {
+			background: rgba($type, 0.2);
+
+			.line {
+				background: $type;
+			}
+		}
+
+		.name--#{$name} {
+			color: $type;
 		}
 
 		&--#{$name} & {
@@ -113,4 +182,8 @@
 			}
 		}
 	}
+}
+
+:root {
+	--primary: #{$primary};
 }

@@ -3,17 +3,10 @@ import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_URL
 
-export const getPokemons = createAsyncThunk( 'pokemons', async (MAX_OF_POKEMONS_TO_SHOW) => {
+export const getPokemons = createAsyncThunk( 'pokemons', async (MAX_OF_POKEMONS_TO_SHOW = 10) => {
 		const pokemons = []
 
-		if (MAX_OF_POKEMONS_TO_SHOW) {
-			const response = await axios.get(`${BASE_URL}/${MAX_OF_POKEMONS_TO_SHOW}`)
-			pokemons.push(response.data)
-			
-			return pokemons;
-		}
-
-		for (let index = 1; index <= 10; index++) {
+		for (let index = 1; index <= MAX_OF_POKEMONS_TO_SHOW; index++) {
 			const response = await axios.get(`${BASE_URL}/${index}`)
 			pokemons.push(response.data)
 		}
@@ -21,14 +14,6 @@ export const getPokemons = createAsyncThunk( 'pokemons', async (MAX_OF_POKEMONS_
 		return pokemons
 	}
 )
-
-export const getPokemon = async (index) => {
-	try {
-		const response = await axios.get(`${BASE_URL}/${index}`)
-	} catch (error) {
-		console.log(error);
-	}
-}
 
 const initialState = {
 	list: [],

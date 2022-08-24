@@ -22,11 +22,11 @@ export function Landing() {
 		: list
 
 	const filteredPokemons = orderBy.length > 0
-	? orderBy.filter(( { name } ) => name.includes(filter))
-	: []
+		? orderBy.filter(( { name } ) => name.includes(filter))
+		: []
 
 	useEffect(() => {
-		dispatch(getPokemons())
+		dispatch(getPokemons(20))
 	}, [])
 
 	return (
@@ -42,7 +42,7 @@ export function Landing() {
 								id={id}
 								key={id}
 								name={name}
-								image={sprites.front_default}
+								image={sprites.other['official-artwork'].front_default}
 								type={types[0].type.name}
 							/>
 						))

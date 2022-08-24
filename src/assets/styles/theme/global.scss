@@ -36,8 +36,8 @@ input {
 	margin-inline: auto;
 }
 
-@each $name, $type in $types {
-	#{$name} {
-		border-color: $type;
-	}
+a {
+	text-decoration: none;
 }
+
+$primary: #000;
