@@ -1,19 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
-import { setFilter, clearFilter } from "../../redux/slices/pokemonsSlice"
-import { Close } from "../svgs/Close"
-import { Land } from "../svgs/Land"
-
+import { setFilter, clearFilter, pokemons } from "../../redux/slices/pokemonsSlice"
+import Close from "../../assets/images/close.svg"
+import Land from "../../assets/images/land.svg"
 
 export function Search() {
-
-	const filter = useSelector(
-		(state) => state.pokemons.filter
-	)
-
-	const loading = useSelector(
-		(state) => state.pokemons.status
-	)
-
+	const { filter, isLoading } = useSelector(pokemons)
 	const dispatch = useDispatch()
 
 	return (
@@ -23,18 +14,18 @@ export function Search() {
 					type="text"
 					placeholder="Procurar"
 					value={filter}
-					disabled={loading === 'success' ? false : true }
+					disabled={isLoading}
 					onChange={(e) => 
 						dispatch(setFilter(e.target.value.toLocaleLowerCase()))
 					}
 				/>
 
-				<Land />
+				<img src={Land} alt="Land" />
 
 				<button
 					onClick={() => clearFilter()}
 				>
-					<Close />
+					<img src={Close} alt="Close" />
 				</button>
 			</label>
 		</form>

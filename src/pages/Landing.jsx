@@ -3,32 +3,22 @@ import { useDispatch, useSelector } from "react-redux"
 import { Card } from "../components/layout/Card"
 import { Header } from "../components/layout/Header"
 import { Loading } from "../components/theme/Loading"
-import { getPokemons } from "../redux/slices/pokemonsSlice"
-
+import { getPokemonsInfo, pokemons } from "../redux/slices/pokemonsSlice"
 
 
 export function Landing() {
 	const dispatch = useDispatch()
+	const { list, filter, isLoading, orderByAlpha } = useSelector(pokemons)
 
-	const filter = useSelector( ({ pokemons }) => pokemons.filter )
+	useEffect(() => {
+		dispatch(getPokemonsInfo(20))
+	}, [])
 
-	const list = useSelector( ({ pokemons }) => pokemons.list )
-
-	const loading = useSelector( ({ pokemons }) => pokemons.status )
-
-	const order = useSelector( (state) => state.pokemons.orderByAlpha )	
-
-	const orderBy = list.length > 0 && order
+	const orderBy = list.length > 0 && orderByAlpha
 		? list.slice().sort((a, b) => a.name.localeCompare(b.name))
 		: list
 
-	const filteredPokemons = orderBy.length > 0
-		? orderBy.filter(( { name } ) => name.includes(filter))
-		: []
-
-	useEffect(() => {
-		dispatch(getPokemons(20))
-	}, [])
+	const filteredPokemons = orderBy.filter(( { name } ) => name.includes(filter))
 
 	return (
 		<main>
@@ -36,17 +26,17 @@ export function Landing() {
 			
 			<div className="list-pokemons container">
 				{
-					loading === 'loading' ? (
-						<Loading />
-					) : ( filteredPokemons && filteredPokemons.map(({ id, name, sprites, types }) => (
-							<Card
-								id={id}
-								key={id}
-								name={name}
-								image={sprites.other['official-artwork'].front_default}
-								type={types[0].type.name}
-							/>
-						))
+					isLoading ? <Loading /> : (
+						( filteredPokemons && filteredPokemons.map(({ id, name, sprites, types }) => (
+								<Card
+									key={id}
+									id={id}
+									name={name}
+									image={sprites && sprites.other['official-artwork'].front_default}
+									type={types && types[0].type.name}
+								/>
+							))
+						)
 					)
 				}
 

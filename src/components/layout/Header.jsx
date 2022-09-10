@@ -1,4 +1,4 @@
-import { Logo } from "../svgs/Logo"
+import Logo from "../../assets/images/logo.svg"
 import { Sort } from "../theme/Sort"
 import { Search } from "./Search"
 
@@ -9,11 +9,7 @@ export function Header() {
 			<header className="container">
 
 				<div className="logo">
-					<Logo
-						width={25}
-						height={25}
-					/>
-
+					<img src={Logo} alt="Pokemon" />
 					<h1>Pokemon</h1>
 				</div>
 				
